@@ -1,0 +1,149 @@
+WORDLİST DB GEREKSİNİM ANALİZİ 
+
+
+Murat Zeytin YILMAZ 
+
+
+İçindekiler 
+
+1.1. Sistemin Amacı 
+
+1.2. Sistemin Kapsamı 
+
+1.3. Hedefler ve Başarı Kriterleri 
+
+1.4. Genel Bakış 
+
+2. Teklif Edilen Sistem 
+
+2.1. Fonksiyonel Gereksinimler 
+
+2.2. Fonksiyonel Olmayan Gereksinimler 
+
+2.2.1. Kullanılabilirlik 
+
+2.2.2. Güvenilirlik 
+
+2.2.3. Performans 
+
+2.2.4. Desteklenebilirlik 
+
+2.2.5. Arayüz 
+
+2.2.6 Gizlilik Gereksinimi 
+
+2.3. Sistem Modelleri 
+
+2.3.1. Aktörler 
+
+2.3.2. Olaylar 
+
+ 
+
+1.Giriş 
+
+1.1. Sistemin Amacı 
+
+          Wordlist DB, sızma testi uzmanları ve siber güvenlik uzmanlarının sızma testlerinde ihtiyacına göre veri tabanından gerekli kelimeleri hazır olarak istenilen formatta sunan (Örneğin; txt, xml, json ...) ve kelimeleri gruplandırarak etiketlenmesini sağlayan, dünya çapında elde edilmiş olan kullanıcı adı ve parolaların, SQL Injection komutlarını, XSS komutlarını tek bir çatı altında hiyerarşik ve kümeler halinde saklanmasını sağlayan, sızma testlerinde hazır kelime listesi sunarak yüksek boyutlarda kelime listelerinden kurtulmayı amaçlayan bir sistem. 
+
+1.2. Sistemin Kapsamı 
+
+            Wordlist DB, sızma testi uzmanları ve siber güvenlik uzmanlarına sızma testlerinde hazır kelime listesi sunma ve elde edilen verileri tek çatı altında toplayarak kolaylık sağlamaktadır. 
+
+1.3. Hedefler ve Başarı Kriterleri 
+
+      -  Sızma Testi ve Siber Güvenlik uzmanlarının kelime listesi ihtiyacını karşılayan bir sistem, 
+
+      - Sızma testlerinde ihtiyaçlara uygun verileri sağlayan bir sistem, 
+
+      - Kelime listelerini ve Injection cümleciklerini bir arada tutan ve ihtiyaca göre sunan bir sistem. 
+
+1.4. Genel Bakış 
+
+        Wordlist DB, kaba kuvvet saldırıları, XSS ve injection saldırıları için sızma testi uzmanları ve siber güvenlik uzmanlarının faydalanabileceği bir veri depolama ve depolanan verileri kullanıcıların isteklerine göre sunan bir sistemdir. 
+
+2. Teklif Edilen Sistem 
+
+2.1. Fonksiyonel Gereksinimler 
+
+      Sistem web ve masaüstü platformlarından kullanılabilmektedir. Her iki platformda veri tabanına kelimeler eklemekte ve ihtiyaçlara göre veri tabanından gerekli verileri çekip kullanıcıya sunmaktadır. Web ve masaüstü platformlarına sistemin yükünü azaltmak ve farklı platformlarla çalışabilmesi amacı ile bir web servisi ile veri tabanı işlemleri gerçekleştirilecektir. 
+
+   - Web Platformu 
+
+    Sisteme kelime listesinden kelime yükleyebilme 
+
+    Sistemdeki kelime listelerinden ihtiyaca uygun olanları istenilen formatta indirebilme 
+
+- Masaüstü Platformu 
+
+    Sisteme kelime listesinden kelime yükleyebilme 
+
+    Sistemdeki kelime listelerinden ihtiyaca uygun olanları istenilen formatta indirebilme 
+
+- Web Servisi 
+
+    Sisteme kelime listelerinden verilerin yüklenebilmesi için gerekli fonksiyonları sunma 
+
+    Sistemde bulanan verilerden istenilenin istenilen formatta (Örneğin; xml, txt, json ...) çekilmesini sağlayan fonksiyonları sunma 
+
+2.2. Fonksiyonel Olmayan Gereksinimler 
+
+2.2.1. Kullanılabilirlik 
+
+      Wordlist DB, web ve masaüstü ortamlarında kullanıcıların kullanabilmesini sağlayacak sadelikte olması planlanmaktadır. Aynı zamanda kullanıcıların gerektiğinde nasıl kullanacağını anlayabilmesi için kullanıcı yardımı dokümanları ile gelecektir. 
+
+2.2.2. Güvenilirlik 
+
+      Sistem sorgulamaları yapıldığı durumlarda araya girilerek SQL tabanlı saldırılara karşı servis kısmında alınan her veri ve sorgular düz metin olarak algılanacak ve böylelikle injection saldırılarından korunulacaktır. Sistemin günlük yedekleri alınarak herhangibir siber müdahale sonrası yedeklerden geri dönüş sağlanacaktır. Servis ile web ve masaüstü uygulamaları arasındaki iletişim şifrelenerek gerçekleştirilecektir. 
+
+2.2.3. Performans 
+
+      Sistem performansı için web, masaüstü ve servis kısımlarında veriler özet veri haline getirilerek, veri aktarımları gerçekleştirilecektir.  
+
+2.2.4. Desteklenebilirlik 
+
+      Wordlist DB sisteminde kullanılan veri tabanı tabloları birbirleri ile ilişkisel olacak ve veri tabanında veri kayıt işlemleri için gerekli prosedürler tasarlanacaktır. 
+
+2.2.5. Arayüz 
+
+      Wordlist DB sisteminde kullanıcı arabirimleri masaüstü uygulaması için konsol ekranı ve form ekranları, web uygulamasında da web sayfalarıdır. Web uygulamasında kelime listesinden kelime yüklemek için bir sayfa, listeden veri listeleme ve veri listesi indirme işlemi için ayrı bir sayfa kullanılacaktır. Masaüstü uygulamasında konsoldan yükleme ve indirme işlemleri için konsol arayüzü , görsel arayüz ile yükleme ve indirme işlemleri yapabilmek için grafik arayüz bulunacaktır. 
+
+2.2.6 Gizlilik Gereksinimi 
+
+      Wordlist DB sisteminde kullanıcılardan veri tabanının bulunduğu sunucunun adresi dışında hiçbir adres ve bilgi gizli tutulmayacaktır.  Sistem açık kaynak kodlu ve herkes tarafından erişilebilir (veri tabanı hariç) bir biçimde  olacaktır. 
+
+2.3. Sistem Modelleri 
+
+2.3.1. Aktörler 
+
+Aktör          |       Tanım
+________________________________________________________________________________________________________
+               | Sisteme kelime ekler,
+Kullanıcı      | Sistemden kelime listesi indirir, 
+               | Sistemden ihtiyacına özel kelime arar
+--------------------------------------------------------------------------------------------------------
+               | Sistemdeki hareketlerin kaydını tutar,
+               | Sistemden istenilen özellikteki kelimeleri istenilen formatta sunar, 
+Sistem         | Güvenliği sağlar,
+               | Sisteme yeni kelimelerin eklenmesini sağlar, 
+               | Sisteme eklenen kelimeleri özelliklerine göre gruplar 
+__________________________________________________________________________________________________________
+ 
+
+2.3.2. Olaylar 
+
+   Kullanıcı uygulamalar ile sisteme bağlanır. 
+
+   Kullanıcı kelime istediği özelliklerde listesi talebinde bulunur. 
+
+   Kullanıcı kelime listesi ile sisteme yeni kelimeler ekler. 
+
+   Sistem hareket kayıtlarını tutar. 
+
+   Sistem yetkisiz erişimleri engeller. 
+
+   Sistem veri tabanına zarar verebilecek veri girişlerini engellemek için veri tabanına göndermeden önce veriyi düz metin haline getirir. 
+
+    Sistem istenilen verileri istenilen formatta kullanıcıya sunar. 
+
+    Sistem sorumlu olduğu verileri gruplayarak kendi içinde hiyerarşi sağlar. 
